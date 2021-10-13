@@ -1,0 +1,29 @@
+name: Shallow Depth
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build_and_deploy_hugo_site:
+    runs-on: ubuntu-latest
+    name: Build and deploy Hugo site
+
+    steps:
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+        hugo-version: '0.88.1'
+    
+    - name: Checkout repo -- shallow depth
+      uses: actions/checkout@v2
+      with:
+        submodules: 'recursive'
+        
+    - name: Build and deploy
+      uses: aormsby/hugo-deploy-to-pages@v2
+      with:
+        source_branch: 'main'
+        release_branch: 'release'
+        submodule_release_branch: 'main'
+        # full_rebuild: true
+        # test_mode: true
