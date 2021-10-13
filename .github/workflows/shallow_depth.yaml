@@ -13,6 +13,7 @@ jobs:
       uses: peaceiris/actions-hugo@v2
       with:
         hugo-version: '0.88.1'
+        extended: true
     
     - name: Checkout repo -- shallow depth
       uses: actions/checkout@v2
