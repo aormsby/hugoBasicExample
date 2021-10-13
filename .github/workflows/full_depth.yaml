@@ -23,9 +23,9 @@ jobs:
         fetch-depth: '0'
         
     - name: Build and deploy
-      uses: aormsby/hugo-deploy-to-pages@v2-post
+      uses: aormsby/hugo-deploy-to-pages@v2
       with:
-        source_branch: 'main'
+        source_branch: 'master'
         release_branch: 'release'
         submodule_release_branch: 'main'
         # full_rebuild: true
